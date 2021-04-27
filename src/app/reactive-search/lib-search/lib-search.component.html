@@ -1,0 +1,35 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container search-table">
+    <div class="search-box">
+        <div class="row">
+            <div class="col-md-9">
+                <input type="text" id="myInput" class="form-control" [formControl]="queryField" placeholder="Pesquisar">
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-success" (click)="onSearch()">Pesquisar</button>
+            </div>
+        </div>
+    </div>
+    <div class="search-list">
+        <h3>{{total}} Registros Encontrados</h3>
+        <table class="table" id="myTable">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Versao</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let r of resultado | async">
+                    <td>{{r.name}}</td>
+                    <td>{{r.version}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
